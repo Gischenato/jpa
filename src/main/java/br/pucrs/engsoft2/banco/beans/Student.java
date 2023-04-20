@@ -1,6 +1,9 @@
 package br.pucrs.engsoft2.banco.beans;
 
+
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,8 +24,8 @@ import lombok.Setter;
 public class Student {
 
 	@Id
-	// @GeneratedValue()
-	String registrationNumber;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long registrationNumber;
     
 	@Column(nullable = false)
 	String name;
@@ -30,8 +33,7 @@ public class Student {
 	@Column(nullable = false)
 	int age;
 
-	// @ManyToMany
-	// @JoinTable(name = "student_discipline")
-	// List<Discipline> discipline;
-
+	@ManyToMany(mappedBy = "students")
+	@JsonIgnoreProperties("students")
+	List<Discipline> disciplines;
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import br.pucrs.engsoft2.banco.beans.Student;
 
@@ -21,7 +22,7 @@ public class StudentRepository {
         return repository.save(student);
     }
 
-    public Student findById(String id) {
+    public Student findById(long id) {
         return repository.findById(id).orElse(null);
     }
 
