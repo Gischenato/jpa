@@ -1,10 +1,7 @@
-- [ ] Servico de registro de estudante
-- [ ] Servico de consulta de estudantes
-
-- [ ] Servico de registro de disciplina
-- [ ] Servico de consulta de disciplinas
-
-- [ ] Servico de matricula
-
-- [ ] Servico de registro de usuario
-- [ ] Servico de login
+- [ ] Microsserviço de registro de estudantes (1)
+- [ ] Microsserviço de consulta de estudantes (2, 3, 4 e 7)
+- [ ] Microsserviço de cadastro de disciplinas (5)
+- [ ] Microsserviço de matricula (6)
+- [ ] Microsserviço de consulta de disciplinas/turma (8)
+- [ ] Microsserviço de registro de usuário (9)
+- [ ] Microsserviço de Login/Logout (10)
