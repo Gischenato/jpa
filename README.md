@@ -1,4 +1,4 @@
-- [ ] Microsserviço de registro de estudantes (1)
+- [-] Microsserviço de registro de estudantes (1)
 - [ ] Microsserviço de consulta de estudantes (2, 3, 4 e 7)
 - [ ] Microsserviço de cadastro de disciplinas (5)
 - [ ] Microsserviço de matricula (6)
