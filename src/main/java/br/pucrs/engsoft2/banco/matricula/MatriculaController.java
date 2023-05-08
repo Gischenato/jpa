@@ -1,8 +1,7 @@
-package br.pucrs.engsoft2.banco.matricula.controllers;
+package br.pucrs.engsoft2.banco.matricula;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,21 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.engsoft2.banco.beans.Discipline;
 import br.pucrs.engsoft2.banco.beans.Student;
-import br.pucrs.engsoft2.banco.matricula.dto.RegisterStudentDTO;
-import br.pucrs.engsoft2.banco.matricula.repositories.DisciplineRepositoryM;
-import br.pucrs.engsoft2.banco.matricula.repositories.StudentRepositoryM;
+import lombok.AllArgsConstructor;
 
 @RestController
+@AllArgsConstructor
 public class MatriculaController {
-    private final StudentRepositoryM studentRepository;
-    private final DisciplineRepositoryM disciplineRepository;
-
-    @Autowired
-    public MatriculaController(StudentRepositoryM studentRepository, DisciplineRepositoryM disciplineRepository) {
-        this.studentRepository = studentRepository;
-        this.disciplineRepository = disciplineRepository;
-    }
-    
+    private final StudentServiceM studentRepository;
+    private final DisciplineServiceM disciplineRepository;
 
     @PostMapping("/matricula")
     public ResponseEntity<String> registerStudentToDiscipline(@RequestBody RegisterStudentDTO body) {

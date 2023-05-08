@@ -1,32 +1,8 @@
 package br.pucrs.engsoft2.banco.repositories;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.pucrs.engsoft2.banco.beans.Student;
 
-@Repository
-public class StudentRepository {
-    
-    private final IStudentRepository repository;
-
-    @Autowired
-    public StudentRepository(IStudentRepository repository) {
-        this.repository = repository;
-    }
-
-    public Student save(Student student) {
-        return repository.save(student);
-    }
-
-    public Student findById(long id) {
-        return repository.findById(id).orElse(null);
-    }
-
-    public List<Student> getAll() {
-        return repository.findAll();
-    }
+public interface StudentRepository extends JpaRepository<Student, Long>{
 }

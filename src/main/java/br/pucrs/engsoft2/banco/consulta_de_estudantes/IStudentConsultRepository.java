@@ -1,4 +1,4 @@
-package br.pucrs.engsoft2.banco.consulta_de_estudantes.repositories;
+package br.pucrs.engsoft2.banco.consulta_de_estudantes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

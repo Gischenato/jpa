@@ -8,19 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.engsoft2.banco.beans.Discipline;
 import br.pucrs.engsoft2.banco.repositories.DisciplineRepository;
+import br.pucrs.engsoft2.banco.repositories.DisciplineService;
+import lombok.AllArgsConstructor;
 
 @RestController
+@AllArgsConstructor
 public class DisciplineController {
     
-    private DisciplineRepository disciplineRepository;
-
-    @Autowired
-    public DisciplineController(DisciplineRepository repository) {
-        this.disciplineRepository = repository;
-    }
+    private final DisciplineService disciplineService;
 
     @GetMapping("/discipline/all")
     public List<Discipline> getAllDiscipline () {
-        return disciplineRepository.getAll();
+        return disciplineService.getAll();
     }
 }

@@ -1,6 +1,5 @@
 package br.pucrs.engsoft2.banco.controllers;
 
-import java.net.http.HttpHeaders;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -12,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 import br.pucrs.engsoft2.banco.beans.Discipline;
 import br.pucrs.engsoft2.banco.beans.RegisterStudentDTO;
 import br.pucrs.engsoft2.banco.beans.Student;
-import br.pucrs.engsoft2.banco.repositories.DisciplineRepository;
-import br.pucrs.engsoft2.banco.repositories.StudentRepository;
+import br.pucrs.engsoft2.banco.repositories.DisciplineService;
+import br.pucrs.engsoft2.banco.repositories.StudentService;
 import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
 public class StudentDisciplineController {
-    private DisciplineRepository disciplineRepository;
-    private StudentRepository studentRepository;
+    private DisciplineService disciplineRepository;
+    private StudentService studentRepository;
 
     @PostMapping("/discipline/register-student")
     public ResponseEntity<String> registerStudentToDiscipline(@RequestBody RegisterStudentDTO body) {

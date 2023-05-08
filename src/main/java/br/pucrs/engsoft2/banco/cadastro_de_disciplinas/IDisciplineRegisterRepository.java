@@ -1,4 +1,4 @@
-package br.pucrs.engsoft2.banco.cadastro_de_disciplinas.repositories;
+package br.pucrs.engsoft2.banco.cadastro_de_disciplinas;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
