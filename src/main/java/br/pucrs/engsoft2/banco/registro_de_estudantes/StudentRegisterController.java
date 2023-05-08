@@ -11,11 +11,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class StudentRegisterController {
     
-    private final StudentRegisterRepository repository;
+    private final StudentRegisterService service;
 
 	@PostMapping("/student/register")
 	public String registerStudent(@RequestBody Student student) {
-		this.repository.save(student);
+		service.save(student);
 		return "Student registered successfully";
 	}
 }

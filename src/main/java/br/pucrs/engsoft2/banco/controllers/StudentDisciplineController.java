@@ -18,16 +18,16 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class StudentDisciplineController {
-    private DisciplineService disciplineRepository;
-    private StudentService studentRepository;
+    private DisciplineService disciplineService;
+    private StudentService studentService;
 
     @PostMapping("/discipline/register-student")
     public ResponseEntity<String> registerStudentToDiscipline(@RequestBody RegisterStudentDTO body) {
-        Discipline discipline = disciplineRepository.findById(body.discipline_id);
+        Discipline discipline = disciplineService.findById(body.discipline_id);
 
         if (discipline == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discipline not found");
         
-        Student student = studentRepository.findById(body.student_id);
+        Student student = studentService.findById(body.student_id);
         if (student == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
 
         List<Student> studentsInTheDiscipline = discipline.getStudents();
@@ -36,7 +36,7 @@ public class StudentDisciplineController {
         studentsInTheDiscipline.add(student);
         discipline.setStudents(studentsInTheDiscipline);
 
-        disciplineRepository.save(discipline);
+        disciplineService.save(discipline);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Student registered in discipline successfully");
     }

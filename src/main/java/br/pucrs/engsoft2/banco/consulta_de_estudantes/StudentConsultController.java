@@ -11,11 +11,11 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class StudentConsultController {
-    private final StudentConsultRepository studentConsultRepository;
+    private final StudentConsultService studentConsultService;
 
 	@GetMapping("/student/all")
 	public List<Student> getAllStudents() {
-		return this.studentConsultRepository.findAll();
+		return this.studentConsultService.findAll();
 	}
 
 }

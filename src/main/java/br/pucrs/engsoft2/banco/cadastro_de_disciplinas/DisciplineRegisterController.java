@@ -11,11 +11,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class DisciplineRegisterController {
     
-    private final DisciplineRegisterRepository disciplineRepository;
+    private final DisciplineRegisterService disciplineService;
 
     @PostMapping("/discipline/register")
     public String addNewDiscipline (@RequestBody Discipline discipline) {
-        disciplineRepository.save(discipline);
+        disciplineService.save(discipline);
         return "Discipline added!";
     }
 }
