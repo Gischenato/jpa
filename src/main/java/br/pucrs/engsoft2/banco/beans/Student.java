@@ -24,7 +24,7 @@ import lombok.Setter;
 public class Student {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	long registrationNumber;
     
 	@Column(nullable = false)

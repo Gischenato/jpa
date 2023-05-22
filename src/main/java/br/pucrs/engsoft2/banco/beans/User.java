@@ -1,48 +1,33 @@
 package br.pucrs.engsoft2.banco.beans;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "usuarios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@Builder
-public class Discipline {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long code;
+    int id;
 
     @Column(nullable = false)
     String name;
 
     @Column(nullable = false)
-    String description;
+    String email;
     
     @Column(nullable = false)
-    String classCode;
-
-    @ManyToMany
-    @JoinTable(
-        name = "student_discipline",
-        joinColumns = @JoinColumn(name = "discipline_id"),
-        inverseJoinColumns = @JoinColumn(name = "student_id")
-    )
-    private List<Student> students;
+    String password;
 }
