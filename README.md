@@ -3,5 +3,5 @@
 - [x] Microsserviço de cadastro de disciplinas (5)
 - [x] Microsserviço de matricula (6)
 - [x] Microsserviço de consulta de disciplinas/turma (8)
-- [ ] Microsserviço de registro de usuário (9)
-- [ ] Microsserviço de Login/Logout (10)
+- [x] Microsserviço de registro de usuário (9)
+- [x] Microsserviço de Login/Logout (10)
