@@ -25,6 +25,6 @@ public class UserAuthController {
             return "Wrong password!";
         }
 
-        return "Ok";
+        return "User logged!";
     }
 }
