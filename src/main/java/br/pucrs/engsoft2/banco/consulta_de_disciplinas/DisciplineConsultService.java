@@ -24,4 +24,7 @@ public class DisciplineConsultService {
         return repository.findByName(name).orElse(null);
     }
 
+    public Discipline findByClassCodeAndTurma(String classCode, String turma) {
+        return repository.findByClassCodeAndTurma(classCode, turma).orElse(null);
+    }
 }
