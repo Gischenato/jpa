@@ -20,4 +20,8 @@ public class DisciplineConsultService {
         return repository.findAll();
     }
 
+    public Discipline findByName(String name) {
+        return repository.findByName(name).orElse(null);
+    }
+
 }

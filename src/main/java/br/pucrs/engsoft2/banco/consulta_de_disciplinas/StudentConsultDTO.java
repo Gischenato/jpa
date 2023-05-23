@@ -1,4 +1,4 @@
-package br.pucrs.engsoft2.banco.consulta_de_turma;
+package br.pucrs.engsoft2.banco.consulta_de_disciplinas;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

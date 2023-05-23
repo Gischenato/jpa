@@ -44,5 +44,6 @@ public class Discipline {
         joinColumns = @JoinColumn(name = "discipline_id"),
         inverseJoinColumns = @JoinColumn(name = "student_id")
     )
+	@JsonIgnoreProperties("disciplines")
     private List<Student> students;
 }
