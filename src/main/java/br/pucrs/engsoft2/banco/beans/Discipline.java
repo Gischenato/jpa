@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
@@ -24,17 +25,21 @@ import lombok.Setter;
 @Setter
 @Getter
 @Builder
+@ToString
 public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long code;
+    long id;
 
     @Column(nullable = false)
     String name;
 
     @Column(nullable = false)
-    String description;
-    
+    String horario;
+
+    @Column(nullable = false)
+    String turma;
+
     @Column(nullable = false)
     String classCode;
 
