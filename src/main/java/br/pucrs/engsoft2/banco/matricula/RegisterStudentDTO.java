@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class RegisterStudentDTO {
-    public long student_id;
-    public long discipline_id;
+    public long student_matricula;
+    public String discipline_code;
+    public String turma;
 }

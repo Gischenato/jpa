@@ -20,21 +20,116 @@ public class MatriculaController {
 
     @PostMapping("/matricula")
     public ResponseEntity<String> registerStudentToDiscipline(@RequestBody RegisterStudentDTO body) {
-        Discipline discipline = disciplineService.findById(body.discipline_id);
+        List<Discipline> discipline = disciplineService.findByClassCode(body.discipline_code);
 
-        if (discipline == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discipline not found");
+        if (discipline.size() == 0) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discipline not found");
         
-        Student student = studentService.findById(body.student_id);
+        Student student = studentService.findByMatricula(body.student_matricula);
         if (student == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
 
-        List<Student> studentsInTheDiscipline = discipline.getStudents();
-        if (studentsInTheDiscipline.contains(student)) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Student is already registered in this discipline");
+        Discipline toRegister = null;
 
+        for (Discipline d : discipline) {
+            if (d.getStudents().contains(student)) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Student is already registered in this discipline");
+            if (d.getTurma().equals(body.turma)) toRegister = d;
+        }
+    
+        if (toRegister == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Discipline (turma) not found"); 
+        
+        var studentsInTheDiscipline = toRegister.getStudents();
         studentsInTheDiscipline.add(student);
-        discipline.setStudents(studentsInTheDiscipline);
-
-        disciplineService.save(discipline);
-
+        toRegister.setStudents(studentsInTheDiscipline);
+        disciplineService.save(toRegister);
         return ResponseEntity.status(HttpStatus.CREATED).body("Student registered in discipline successfully");
     }
 }
+
+/*
+ 
+[
+    {
+        "id": 1,
+        "name": "historia",
+        "horario": "A",
+        "turma": "10",
+        "classCode": "1020A",
+    },
+    {
+        "id": 2,
+        "name": "historia",
+        "horario": "A",
+        "turma": "15",
+        "classCode": "1020A",
+    },
+    {
+        "id": 3,
+        "name": "historia",
+        "horario": "C",
+        "turma": "20",
+        "classCode": "1020A",
+    },
+    {
+        "id": 52,
+        "name": "matematica",
+        "horario": "A",
+        "turma": "10",
+        "classCode": "1030A",
+    },
+    {
+        "id": 53,
+        "name": "matematica",
+        "horario": "B",
+        "turma": "15",
+        "classCode": "1030A",
+    },
+    {
+        "id": 54,
+        "name": "fisica",
+        "horario": "B",
+        "turma": "10",
+        "classCode": "1040B",
+    },
+    {
+        "id": 55,
+        "name": "fisica",
+        "horario": "C",
+        "turma": "15",
+        "classCode": "1040B",
+    }
+]
+
+[
+    {
+        "registrationNumber": 1,
+        "name": "jaime",
+        "documentNumber": "102050",
+        "disciplines": []
+    },
+    {
+        "registrationNumber": 2,
+        "name": "giovanna",
+        "documentNumber": "102045",
+        "disciplines": []
+    },
+    {
+        "registrationNumber": 3,
+        "name": "gabriel",
+        "documentNumber": "102040",
+        "disciplines": []
+    },
+    {
+        "registrationNumber": 4,
+        "name": "joao",
+        "documentNumber": "102035",
+        "disciplines": []
+    },
+    {
+        "registrationNumber": 5,
+        "name": "romanini",
+        "documentNumber": "102030",
+        "disciplines": []
+    }
+]
+
+
+ */

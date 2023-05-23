@@ -15,7 +15,8 @@ public class StudentServiceM {
         return repository.save(student);
     }
 
-    public Student findById(long id) {
-        return repository.findById(id).orElse(null);
+    public Student findByMatricula(long matricula) {
+        return repository.findById(matricula).orElse(null);
     }
+
 }

@@ -1,5 +1,7 @@
 package br.pucrs.engsoft2.banco.matricula;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.pucrs.engsoft2.banco.beans.Discipline;
@@ -17,6 +19,10 @@ public class DisciplineServiceM {
 
     public Discipline findById(long id) {
         return repository.findById(id).orElse(null);
+    }
+
+    public List<Discipline> findByClassCode(String classCode) {
+        return repository.findByClassCode(classCode).orElse(null);
     }
 
 }
