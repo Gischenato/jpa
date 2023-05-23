@@ -15,5 +15,13 @@ public class StudentConsultService {
     public List<Student> findAll() {
         return repository.findAll();
     }
+
+    public Student findById(long registrationNumber) {
+        return repository.findById(registrationNumber).orElse(null);
+    }
+
+    public List<Student> findByNameContaining(String name) {
+        return repository.findByNameContaining(name);
+    }
     
 }

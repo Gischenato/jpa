@@ -11,5 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StudentConsultDTO {
     String name;
-    int age;
+    long registrationNumber;
 }

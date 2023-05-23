@@ -17,4 +17,8 @@ public class StudentRegisterService {
     public Student findById(long id) {
         return repository.findById(id).orElse(null);
     }
+
+    public Student findByDocumentNumber(String documentNumber) {
+        return repository.findByDocumentNumber(documentNumber).orElse(null);
+    }
 }

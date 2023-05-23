@@ -29,9 +29,9 @@ public class Student {
     
 	@Column(nullable = false)
 	String name;
-    
+
 	@Column(nullable = false)
-	int age;
+	String documentNumber;
 
 	@ManyToMany(mappedBy = "students")
 	@JsonIgnoreProperties("students")

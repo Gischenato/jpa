@@ -35,7 +35,7 @@ public class DisciplineConsultController {
         List<Student> students = discipline.getStudents();
         
         response = students.stream()
-        .map(student -> new StudentConsultDTO(student.getName(), student.getAge()))
+        .map(student -> new StudentConsultDTO(student.getName(), student.getRegistrationNumber()))
         .toList();
         
         return ResponseEntity.status(HttpStatus.OK).body(response);
