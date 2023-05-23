@@ -1,10 +1,17 @@
-- [x] Microsserviço de registro de estudantes (1)
-- [x] Microsserviço de consulta de estudantes (2, 3, 4 e 7)
-- [x] Microsserviço de cadastro de disciplinas (5)
+Integrantes do grupo:
 
-- [x] Microsserviço de consulta de disciplinas/turma (8)
+    - Eduardo Pretto
+    - Gabriel Tabajara
+    - Giovanni Schenato
+    - João Pedro Feijó
 
-- [x] Microsserviço de matricula (6)
-`
-- [x] Microsserviço de registro de usuário (9)
-- [x] Microsserviço de Login/Logout (10)
+
+Nome do microsserviço (número da funcionalidade)
+
+Microsserviço de Login/Logout, chamado de autenticasao de usuários (10)
+Microsserviço de cadastro de disciplinas (5)
+Microsserviço de cadastro de usuário (9)
+Microsserviço de consulta de disciplinas/turma (8)
+Microsserviço de consulta de estudantes (2, 3, 4 e 7)
+Microsserviço de matricula (6)
+Microsserviço de registro de estudantes (1)
